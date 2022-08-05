@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>org.fzq.pomodoro</id>
+    <name>pomodoro schedule</name>
+    <vendor email="zqfangmaster@163.com" url="http://www.fzq.com">fzq</vendor>
+
+    <description><![CDATA[
+    A plugin for time management using pomodoro
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <group id="IdeaPlugin.pomodoroSchedule" text="pomodoro schedule">
+            <add-to-group group-id="MainMenu" anchor="last"></add-to-group>
+            <action class="com.zqf.pomodoroschedule.MainAction" id="IdeaPlugin.Actions.MainAction" text="init"></action>
+        </group>
+    </actions>
+</idea-plugin>
