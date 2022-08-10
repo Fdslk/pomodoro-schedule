@@ -29,11 +29,16 @@
         <!--add subgroup to an existing group-->
         <group id="org.intellij.sdk.action.GroupedActions" text="Static Grouped Actions" popup="true" icon="AllIcons.Actions.Colors">
             <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.intellij.sdk.action.PopupDialogAction"/>
-            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="IdeaPlugin.Actions.MainAction"/>
             <action id="com.zqf.pomodoroschedule.PomodoroSettingsAction"
                     class="com.zqf.pomodoroschedule.PomodoroSettingsAction" text="PomodoroSettingsAction" icon="AllIcons.Actions.ForceRefresh">
             </action>
             <action class="com.zqf.pomodoroschedule.MainAction" id="IdeaPlugin.Actions.MainAction" text="init"></action>
+        </group>
+
+        <!--dynamic group not working-->
+        <group id="com.zqf.pomodoroschedule.group.DynamicActionGroup"
+               class="com.zqf.pomodoroschedule.group.DynamicActionGroup" text="Dynamically Grouped Actions" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.intellij.sdk.action.GroupedActions"></add-to-group>
         </group>
 
         <!--custom new group-->
@@ -42,11 +47,6 @@
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <action class="com.zqf.pomodoroschedule.group.PomodoroSettingsAction" id="com.zqf.pomodoroschedule.group.CustomGroupedAction"
                     text="A Popup Action" description="SDK popup grouped action example" icon="AllIcons.Gutter.Colors"/>
-        </group>
-        <!--dynamic group not working-->
-        <group id="com.zqf.pomodoroschedule.group.DynamicActionGroup"
-               class="com.zqf.pomodoroschedule.group.DynamicActionGroup" text="Dynamically Grouped Actions">
-            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.intellij.sdk.action.GroupedActions"></add-to-group>
         </group>
     </actions>
 </idea-plugin>
