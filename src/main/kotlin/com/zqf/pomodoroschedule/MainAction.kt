@@ -2,7 +2,6 @@ package com.zqf.pomodoroschedule
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.ui.popup.JBPopupFactory
 
 class MainAction: AnAction() {
@@ -13,7 +12,7 @@ class MainAction: AnAction() {
         }
     }
 
-    private fun showDialog() {
+    fun showDialog() {
         val pluginWrapper = DataDialogWrapper()
         if (DataDialogWrapper().showAndGet()) {
             pluginWrapper.close(0)
