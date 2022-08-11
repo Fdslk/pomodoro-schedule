@@ -13,6 +13,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.zqf.pomodoroschedule.PluginSettings"></applicationService>
+        <toolWindow factoryClass="com.zqf.pomodoroschedule.WindowsFactory" id="Sample Calender" secondary="true" icon="AllIcons.General.Modified" anchor="right"></toolWindow>
         <!-- Add your extensions here -->
     </extensions>
 
@@ -32,7 +33,7 @@
             <action id="com.zqf.pomodoroschedule.PomodoroSettingsAction"
                     class="com.zqf.pomodoroschedule.PomodoroSettingsAction" text="PomodoroSettingsAction" icon="AllIcons.Actions.ForceRefresh">
             </action>
-            <action class="com.zqf.pomodoroschedule.MainAction" id="IdeaPlugin.Actions.MainAction" text="init"></action>
+            <action class="com.zqf.pomodoroschedule.MainAction" id="IdeaPlugin.group.Actions.MainAction" text="init"></action>
         </group>
 
         <!--dynamic group not working-->
