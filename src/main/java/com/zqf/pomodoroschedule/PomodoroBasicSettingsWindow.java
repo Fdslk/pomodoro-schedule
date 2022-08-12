@@ -7,7 +7,7 @@ import java.util.Calendar;
 
 public class PomodoroBasicSettingsWindow {
     private JButton savePomodoroButton;
-    private JButton canelThisOperation;
+    private JButton cancelThisOperation;
     private JLabel pomodoroLength;
     private JLabel label2Pomodoros;
     private JLabel timeZone;
@@ -22,7 +22,7 @@ public class PomodoroBasicSettingsWindow {
     private JComboBox count2Pomodoros;
 
     public PomodoroBasicSettingsWindow(ToolWindow toolWindow) {
-        canelThisOperation.addActionListener(e -> toolWindow.hide(null));
+        cancelThisOperation.addActionListener(e -> toolWindow.hide(null));
         savePomodoroButton.addActionListener(e -> currentDateTime());
 
         this.currentDateTime();
