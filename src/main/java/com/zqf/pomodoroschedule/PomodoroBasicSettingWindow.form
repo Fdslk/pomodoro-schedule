@@ -1,63 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.zqf.pomodoroschedule.PomodoroBasicSettingsWindow">
-  <grid id="27dc6" binding="myToolWindowContent" layout-manager="GridLayoutManager" row-count="2" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="myToolWindowContent" layout-manager="GridLayoutManager" row-count="7" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="645" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="9aa3f" class="javax.swing.JLabel" binding="currentDate">
+      <component id="9aa3f" class="javax.swing.JLabel" binding="pomodoroLength">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Date"/>
+          <text value="Promodoro Length:"/>
+        </properties>
+      </component>
+      <component id="54947" class="javax.swing.JComboBox" binding="cBox2PomodoroLength">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <editable value="true"/>
+          <model>
+            <item value="25"/>
+            <item value="30"/>
+            <item value="35"/>
+            <item value="40"/>
+            <item value="45"/>
+          </model>
+        </properties>
+      </component>
+      <component id="9b1fc" class="javax.swing.JLabel" binding="breakTimeSpan">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Break Time Span:"/>
+        </properties>
+      </component>
+      <component id="33dbe" class="javax.swing.JComboBox" binding="cBox2BreakTimeSpan">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <editable value="true"/>
+          <model>
+            <item value="5"/>
+            <item value="10"/>
+            <item value="15"/>
+          </model>
+        </properties>
+      </component>
+      <component id="db916" class="javax.swing.JLabel" binding="longBreakTimeSpan">
+        <constraints>
+          <grid row="2" column="0" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Long Break Time Span:"/>
+        </properties>
+      </component>
+      <component id="57165" class="javax.swing.JLabel" binding="notificationMessages">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Notification Messages:"/>
         </properties>
       </component>
       <component id="44be3" class="javax.swing.JLabel" binding="timeZone">
         <constraints>
-          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="TimeZone"/>
+          <text value="minute(s) after"/>
         </properties>
       </component>
-      <component id="f02af" class="javax.swing.JLabel" binding="currentTime">
+      <component id="5fceb" class="javax.swing.JButton" binding="savePomodoroButton">
         <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Time"/>
+          <text value="Save"/>
         </properties>
       </component>
-      <component id="5fceb" class="javax.swing.JButton" binding="refreshToolWindowButton">
+      <component id="5309e" class="javax.swing.JTextPane" binding="multiText2NotificationMessages">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
         </constraints>
         <properties>
-          <text value="Refresh"/>
+          <background color="-4459326"/>
         </properties>
       </component>
-      <component id="3edc1" class="javax.swing.JButton" binding="hideToolWindowButton">
+      <component id="ee123" class="javax.swing.JComboBox" binding="cBox2longBreakTimeSpan">
         <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Hide"/>
+          <editable value="true"/>
+          <model>
+            <item value="20"/>
+            <item value="25"/>
+            <item value="30"/>
+            <item value="35"/>
+            <item value="40"/>
+          </model>
         </properties>
       </component>
-      <hspacer id="8bf9c">
+      <component id="3edc1" class="javax.swing.JButton" binding="canelThisOperation">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
-      </hspacer>
-      <hspacer id="26841">
+        <properties>
+          <text value="Canel"/>
+        </properties>
+      </component>
+      <component id="f02af" class="javax.swing.JLabel" binding="label2Pomodoros">
         <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
-      </hspacer>
+        <properties>
+          <text value="pomodoros"/>
+        </properties>
+      </component>
+      <component id="b5993" class="javax.swing.JComboBox" binding="count2Pomodoros">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <editable value="true"/>
+          <model>
+            <item value="1"/>
+            <item value="2"/>
+            <item value="3"/>
+            <item value="4"/>
+            <item value="5"/>
+          </model>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

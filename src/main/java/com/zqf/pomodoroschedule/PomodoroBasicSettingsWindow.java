@@ -6,16 +6,24 @@ import javax.swing.*;
 import java.util.Calendar;
 
 public class PomodoroBasicSettingsWindow {
-    private JButton refreshToolWindowButton;
-    private JButton hideToolWindowButton;
-    private JLabel currentDate;
-    private JLabel currentTime;
+    private JButton savePomodoroButton;
+    private JButton canelThisOperation;
+    private JLabel pomodoroLength;
+    private JLabel label2Pomodoros;
     private JLabel timeZone;
     private JPanel myToolWindowContent;
+    private JComboBox cBox2BreakTimeSpan;
+    private JComboBox cBox2PomodoroLength;
+    private JLabel breakTimeSpan;
+    private JLabel longBreakTimeSpan;
+    private JComboBox cBox2longBreakTimeSpan;
+    private JLabel notificationMessages;
+    private JTextPane multiText2NotificationMessages;
+    private JComboBox count2Pomodoros;
 
     public PomodoroBasicSettingsWindow(ToolWindow toolWindow) {
-        hideToolWindowButton.addActionListener(e -> toolWindow.hide(null));
-        refreshToolWindowButton.addActionListener(e -> currentDateTime());
+        canelThisOperation.addActionListener(e -> toolWindow.hide(null));
+        savePomodoroButton.addActionListener(e -> currentDateTime());
 
         this.currentDateTime();
     }
@@ -23,16 +31,16 @@ public class PomodoroBasicSettingsWindow {
     public void currentDateTime() {
         // Get current date and time
         Calendar instance = Calendar.getInstance();
-        currentDate.setText(
+        pomodoroLength.setText(
                 instance.get(Calendar.DAY_OF_MONTH) + "/"
                         + (instance.get(Calendar.MONTH) + 1) + "/"
                         + instance.get(Calendar.YEAR)
         );
-        currentDate.setIcon(new ImageIcon(getClass().getResource("/toolWindow/Calendar-icon.png")));
+        pomodoroLength.setIcon(new ImageIcon(getClass().getResource("/toolWindow/Calendar-icon.png")));
         int min = instance.get(Calendar.MINUTE);
         String strMin = min < 10 ? "0" + min : String.valueOf(min);
-        currentTime.setText(instance.get(Calendar.HOUR_OF_DAY) + ":" + strMin);
-        currentTime.setIcon(new ImageIcon(getClass().getResource("/toolWindow/Time-icon.png")));
+        label2Pomodoros.setText(instance.get(Calendar.HOUR_OF_DAY) + ":" + strMin);
+        label2Pomodoros.setIcon(new ImageIcon(getClass().getResource("/toolWindow/Time-icon.png")));
         // Get time zone
         long gmt_Offset = instance.get(Calendar.ZONE_OFFSET); // offset from GMT in milliseconds
         String str_gmt_Offset = String.valueOf(gmt_Offset / 3600000);
