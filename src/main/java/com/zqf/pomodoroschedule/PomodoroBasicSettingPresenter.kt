@@ -3,6 +3,7 @@ package com.zqf.pomodoroschedule
 import com.intellij.openapi.options.ConfigurationException
 import com.intellij.openapi.options.SearchableConfigurable
 import com.zqf.pomodoroschedule.model.BasicSettings
+import java.awt.event.ActionListener
 import javax.swing.JComponent
 
 class PomodoroBasicSettingPresenter constructor(private val basicSettings: BasicSettings = BasicSettings.instance): SearchableConfigurable {
@@ -12,7 +13,24 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
     override fun createComponent(): JComponent? {
         basicSettingsWindowFrom = PomodoroBasicSettingsWindow()
         uiModel = BasicSettings()
+
+        setupUIBindings()
+
         return basicSettingsWindowFrom?.content
+    }
+
+    private fun setupUIBindings() {
+        updateUI()
+    }
+
+    private fun updateUI() {
+        basicSettingsWindowFrom!!.apply {
+            cBox2PomodoroLength.model.selectedItem = uiModel.pomodoroDuration
+            cBox2BreakTimeSpan.model.selectedItem = uiModel.breakDuration
+            cBox2longBreakTimeSpan.model.selectedItem = uiModel.longBreakDuration
+            count2Pomodoros.model.selectedItem = uiModel.longBreakFrequency
+            multiText2NotificationMessages.text = "test"
+        }
     }
 
     override fun isModified() = uiModel != basicSettings

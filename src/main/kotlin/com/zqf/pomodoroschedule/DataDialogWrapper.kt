@@ -63,11 +63,6 @@ class DataDialogWrapper: DialogWrapper(true) {
         var username = txtUserName.text
         val password = txtUserPWD.text
         var state = PluginSettings.getInstance().state
-
-        val basicSettings = BasicSettings.getInstance().state
-        Messages.showMessageDialog("${basicSettings?.breakDuration}:${basicSettings?.longBreakDuration}", Messages.OK_BUTTON, Messages.getInformationIcon())
-
-        basicSettings?.breakDuration
         state?.mode = mode
 
         val credentialAttributes = CredentialAttributes("Pomodoro Plugin")

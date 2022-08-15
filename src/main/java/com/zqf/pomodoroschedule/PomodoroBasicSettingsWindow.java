@@ -15,14 +15,14 @@ public class PomodoroBasicSettingsWindow {
     private JLabel label2Pomodoros;
     private JLabel timeZone;
     private JPanel myToolWindowContent;
-    private JComboBox cBox2BreakTimeSpan;
-    private JComboBox cBox2PomodoroLength;
+    public JComboBox cBox2BreakTimeSpan;
+    public JComboBox cBox2PomodoroLength;
     private JLabel breakTimeSpan;
     private JLabel longBreakTimeSpan;
-    private JComboBox cBox2longBreakTimeSpan;
+    public JComboBox cBox2longBreakTimeSpan;
     private JLabel notificationMessages;
-    private JTextPane multiText2NotificationMessages;
-    private JComboBox count2Pomodoros;
+    public JTextPane multiText2NotificationMessages;
+    public JComboBox count2Pomodoros;
 
 //    public PomodoroBasicSettingsWindow(ToolWindow toolWindow) {
 //        cancelThisOperation.addActionListener(e -> toolWindow.hide(null));
