@@ -19,6 +19,13 @@ Intellig plugin for time management
       * Extending ```DefaultActionGroup```
       * register new group
   * how to do data persistence
+    * the persistence data class is separated with the settings
+    * combine the settings into one class
+      ```kotlin
+      public void loadState(MyService state) {
+        XmlSerializerUtil.copyBean(state, this);
+      }
+      ```
   * how to show UI
     * how to show input
     * how to upload file

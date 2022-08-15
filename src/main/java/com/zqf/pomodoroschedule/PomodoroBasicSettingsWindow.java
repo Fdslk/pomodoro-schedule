@@ -21,8 +21,14 @@ public class PomodoroBasicSettingsWindow {
     private JTextPane multiText2NotificationMessages;
     private JComboBox count2Pomodoros;
 
-    public PomodoroBasicSettingsWindow(ToolWindow toolWindow) {
-        cancelThisOperation.addActionListener(e -> toolWindow.hide(null));
+//    public PomodoroBasicSettingsWindow(ToolWindow toolWindow) {
+//        cancelThisOperation.addActionListener(e -> toolWindow.hide(null));
+//        savePomodoroButton.addActionListener(e -> currentDateTime());
+//
+//        this.currentDateTime();
+//    }
+
+        public PomodoroBasicSettingsWindow() {
         savePomodoroButton.addActionListener(e -> currentDateTime());
 
         this.currentDateTime();

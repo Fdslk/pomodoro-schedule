@@ -10,7 +10,8 @@ import org.jetbrains.annotations.NotNull;
 public class WindowsFactory implements ToolWindowFactory {
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
-        PomodoroBasicSettingsWindow myToolWindow = new PomodoroBasicSettingsWindow(toolWindow);
+//        PomodoroBasicSettingsWindow myToolWindow = new PomodoroBasicSettingsWindow(toolWindow);
+        PomodoroBasicSettingsWindow myToolWindow = new PomodoroBasicSettingsWindow();
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         Content content = contentFactory.createContent(myToolWindow.getContent(), "", false);
         toolWindow.getContentManager().addContent(content);

@@ -10,7 +10,7 @@ import com.intellij.uiDesigner.core.AbstractLayout
 import com.intellij.util.ui.GridBag
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.UIUtil
-import com.jetbrains.rd.swing.textProperty
+import com.zqf.pomodoroschedule.model.BasicSettings
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import java.awt.Insets
@@ -63,6 +63,11 @@ class DataDialogWrapper: DialogWrapper(true) {
         var username = txtUserName.text
         val password = txtUserPWD.text
         var state = PluginSettings.getInstance().state
+
+        val basicSettings = BasicSettings.getInstance().state
+        Messages.showMessageDialog("${basicSettings?.breakDuration}:${basicSettings?.longBreakDuration}", Messages.OK_BUTTON, Messages.getInformationIcon())
+
+        basicSettings?.breakDuration
         state?.mode = mode
 
         val credentialAttributes = CredentialAttributes("Pomodoro Plugin")
