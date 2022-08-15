@@ -14,7 +14,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.zqf.pomodoroschedule.PluginSettings"></applicationService>
         <applicationService serviceImplementation="com.zqf.pomodoroschedule.model.BasicSettings"></applicationService>
-        <toolWindow factoryClass="com.zqf.pomodoroschedule.WindowsFactory" id="Sample Calender" secondary="true" icon="AllIcons.General.Modified" anchor="right"></toolWindow>
+<!--        <toolWindow factoryClass="com.zqf.pomodoroschedule.WindowsFactory" id="Sample Calender" secondary="true" icon="AllIcons.General.Modified" anchor="right"></toolWindow>-->
         <applicationConfigurable instance="com.zqf.pomodoroschedule.PomodoroBasicSettingPresenter"></applicationConfigurable>
         <!-- Add your extensions here -->
     </extensions>

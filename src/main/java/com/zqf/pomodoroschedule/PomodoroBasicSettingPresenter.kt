@@ -12,7 +12,7 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
     override fun createComponent(): JComponent? {
         basicSettingsWindowFrom = PomodoroBasicSettingsWindow()
         uiModel = BasicSettings()
-        TODO("Not yet implemented")
+        return basicSettingsWindowFrom?.content
     }
 
     override fun isModified() = uiModel != basicSettings

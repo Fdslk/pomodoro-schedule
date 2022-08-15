@@ -29,5 +29,12 @@ Intellig plugin for time management
   * how to show UI
     * how to show input
     * how to upload file
-  * how to show dialog
+    * tips
+      * If your project is built by **Gradle**, GUI Designer will not generate java source code.
+      * you can generate sources code as following: [using idea to build code](https://www.jetbrains.com/help/idea/work-with-gradle-projects.html#delegate_build_actions)
+  * how to show dialog 
+    * go to your src folder->New->Swing GUI Designer->input required info->create
+    * if the UI related java code could not generate automatically, you can check the following
+    setting
+    ![GUI Designer](https://user-images.githubusercontent.com/6279298/184563693-fbf2e41e-0dc1-471b-83dd-4a555d111f2d.png)
   * how to show PopupList
