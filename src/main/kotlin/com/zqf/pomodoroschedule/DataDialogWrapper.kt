@@ -4,13 +4,11 @@ import com.intellij.credentialStore.CredentialAttributes
 import com.intellij.credentialStore.Credentials
 import com.intellij.ide.passwordSafe.PasswordSafe
 import com.intellij.openapi.ui.DialogWrapper
-import com.intellij.openapi.ui.Messages
 import com.intellij.ui.components.JBLabel
 import com.intellij.uiDesigner.core.AbstractLayout
 import com.intellij.util.ui.GridBag
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.UIUtil
-import com.zqf.pomodoroschedule.model.BasicSettings
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import java.awt.Insets

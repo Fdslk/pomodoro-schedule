@@ -3,12 +3,10 @@ package com.zqf.pomodoroschedule
 import com.intellij.openapi.components.service
 import com.intellij.openapi.options.ConfigurationException
 import com.intellij.openapi.options.SearchableConfigurable
-import com.intellij.openapi.roots.ui.addKeyboardAction
 import com.intellij.openapi.roots.ui.whenTextModified
 import com.zqf.pomodoroschedule.model.BasicSettings
 import java.awt.event.ActionListener
 import javax.swing.JComponent
-import javax.swing.event.ChangeListener
 
 class PomodoroBasicSettingPresenter constructor(private val basicSettings: BasicSettings = service()): SearchableConfigurable {
     private lateinit var uiModel: BasicSettings
