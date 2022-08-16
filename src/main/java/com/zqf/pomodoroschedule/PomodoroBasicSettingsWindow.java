@@ -1,16 +1,12 @@
 package com.zqf.pomodoroschedule;
 
-import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Calendar;
 
 public class PomodoroBasicSettingsWindow {
-    private JButton savePomodoroButton;
-    private JButton cancelThisOperation;
     private JLabel pomodoroLength;
     private JLabel label2Pomodoros;
     private JLabel timeZone;
@@ -23,40 +19,6 @@ public class PomodoroBasicSettingsWindow {
     private JLabel notificationMessages;
     public JTextPane multiText2NotificationMessages;
     public JComboBox count2Pomodoros;
-
-//    public PomodoroBasicSettingsWindow(ToolWindow toolWindow) {
-//        cancelThisOperation.addActionListener(e -> toolWindow.hide(null));
-//        savePomodoroButton.addActionListener(e -> currentDateTime());
-//
-//        this.currentDateTime();
-//    }
-
-    public PomodoroBasicSettingsWindow() {
-        savePomodoroButton.addActionListener(e -> currentDateTime());
-
-        this.currentDateTime();
-    }
-
-    public void currentDateTime() {
-        // Get current date and time
-        Calendar instance = Calendar.getInstance();
-        pomodoroLength.setText(
-                instance.get(Calendar.DAY_OF_MONTH) + "/"
-                        + (instance.get(Calendar.MONTH) + 1) + "/"
-                        + instance.get(Calendar.YEAR)
-        );
-        pomodoroLength.setIcon(new ImageIcon(getClass().getResource("/toolWindow/Calendar-icon.png")));
-        int min = instance.get(Calendar.MINUTE);
-        String strMin = min < 10 ? "0" + min : String.valueOf(min);
-        label2Pomodoros.setText(instance.get(Calendar.HOUR_OF_DAY) + ":" + strMin);
-        label2Pomodoros.setIcon(new ImageIcon(getClass().getResource("/toolWindow/Time-icon.png")));
-        // Get time zone
-        long gmt_Offset = instance.get(Calendar.ZONE_OFFSET); // offset from GMT in milliseconds
-        String str_gmt_Offset = String.valueOf(gmt_Offset / 3600000);
-        str_gmt_Offset = (gmt_Offset > 0) ? "GMT + " + str_gmt_Offset : "GMT - " + str_gmt_Offset;
-        timeZone.setText(str_gmt_Offset);
-        timeZone.setIcon(new ImageIcon(getClass().getResource("/toolWindow/Time-zone-icon.png")));
-    }
 
     public JPanel getContent() {
         return myToolWindowContent;
@@ -78,7 +40,7 @@ public class PomodoroBasicSettingsWindow {
      */
     private void $$$setupUI$$$() {
         myToolWindowContent = new JPanel();
-        myToolWindowContent.setLayout(new GridLayoutManager(7, 5, new Insets(0, 0, 0, 0), -1, -1));
+        myToolWindowContent.setLayout(new GridLayoutManager(6, 5, new Insets(0, 0, 0, 0), -1, -1));
         pomodoroLength = new JLabel();
         pomodoroLength.setText("Promodoro Length:");
         myToolWindowContent.add(pomodoroLength, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -112,9 +74,6 @@ public class PomodoroBasicSettingsWindow {
         timeZone = new JLabel();
         timeZone.setText("minute(s) after");
         myToolWindowContent.add(timeZone, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        savePomodoroButton = new JButton();
-        savePomodoroButton.setText("Save");
-        myToolWindowContent.add(savePomodoroButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         multiText2NotificationMessages = new JTextPane();
         multiText2NotificationMessages.setBackground(new Color(-4459326));
         myToolWindowContent.add(multiText2NotificationMessages, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
@@ -128,9 +87,6 @@ public class PomodoroBasicSettingsWindow {
         defaultComboBoxModel3.addElement("40");
         cBox2longBreakTimeSpan.setModel(defaultComboBoxModel3);
         myToolWindowContent.add(cBox2longBreakTimeSpan, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        cancelThisOperation = new JButton();
-        cancelThisOperation.setText("Canel");
-        myToolWindowContent.add(cancelThisOperation, new GridConstraints(6, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         label2Pomodoros = new JLabel();
         label2Pomodoros.setText("pomodoros");
         myToolWindowContent.add(label2Pomodoros, new GridConstraints(3, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -152,4 +108,5 @@ public class PomodoroBasicSettingsWindow {
     public JComponent $$$getRootComponent$$$() {
         return myToolWindowContent;
     }
+
 }
