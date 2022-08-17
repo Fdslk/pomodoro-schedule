@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>org.fzq.pomodoro</id>
     <name>pomodoro schedule</name>
-    <vendor email="zqfangmaster@163.com" url="http://www.fzq.com">fzq</vendor>
+    <vendor email="zqfangmaster@163.com" url="https://github.com/Fdslk/pomodoro-schedule">fzq</vendor>
 
     <description><![CDATA[
     A plugin for time management using pomodoro

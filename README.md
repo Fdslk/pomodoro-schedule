@@ -1,3 +1,4 @@
+[![Java CI with Gradle](https://github.com/Fdslk/pomodoro-schedule/actions/workflows/gradle.yml/badge.svg)](https://github.com/Fdslk/pomodoro-schedule/actions/workflows/gradle.yml)
 # pomodprp-schedule
 Intellig plugin for time management
 
