@@ -4,7 +4,10 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.StyleContext;
 import java.awt.*;
+import java.util.Locale;
 
 public class PomodoroBasicSettingsWindow {
     private JLabel pomodoroLength;
@@ -19,6 +22,9 @@ public class PomodoroBasicSettingsWindow {
     private JLabel notificationMessages;
     public JTextPane multiText2NotificationMessages;
     public JComboBox count2Pomodoros;
+    private JButton StartPomodorobutton;
+    private JLabel Timer;
+    private JLabel TimerPresentation;
 
     public JPanel getContent() {
         return myToolWindowContent;
@@ -40,7 +46,7 @@ public class PomodoroBasicSettingsWindow {
      */
     private void $$$setupUI$$$() {
         myToolWindowContent = new JPanel();
-        myToolWindowContent.setLayout(new GridLayoutManager(6, 5, new Insets(0, 0, 0, 0), -1, -1));
+        myToolWindowContent.setLayout(new GridLayoutManager(7, 5, new Insets(0, 0, 0, 0), -1, -1));
         pomodoroLength = new JLabel();
         pomodoroLength.setText("Promodoro Length:");
         myToolWindowContent.add(pomodoroLength, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -53,7 +59,7 @@ public class PomodoroBasicSettingsWindow {
         defaultComboBoxModel1.addElement("40");
         defaultComboBoxModel1.addElement("45");
         cBox2PomodoroLength.setModel(defaultComboBoxModel1);
-        myToolWindowContent.add(cBox2PomodoroLength, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        myToolWindowContent.add(cBox2PomodoroLength, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         breakTimeSpan = new JLabel();
         breakTimeSpan.setText("Break Time Span:");
         myToolWindowContent.add(breakTimeSpan, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -100,6 +106,39 @@ public class PomodoroBasicSettingsWindow {
         defaultComboBoxModel4.addElement("5");
         count2Pomodoros.setModel(defaultComboBoxModel4);
         myToolWindowContent.add(count2Pomodoros, new GridConstraints(3, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        StartPomodorobutton = new JButton();
+        StartPomodorobutton.setText("Start");
+        myToolWindowContent.add(StartPomodorobutton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        Timer = new JLabel();
+        Timer.setText("Timer:");
+        myToolWindowContent.add(Timer, new GridConstraints(5, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        TimerPresentation = new JLabel();
+        Font TimerPresentationFont = this.$$$getFont$$$("Osaka", Font.BOLD, 28, TimerPresentation.getFont());
+        if (TimerPresentationFont != null) TimerPresentation.setFont(TimerPresentationFont);
+        TimerPresentation.setText("00:00");
+        myToolWindowContent.add(TimerPresentation, new GridConstraints(5, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
+        boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
+        Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
+        return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
     }
 
     /**

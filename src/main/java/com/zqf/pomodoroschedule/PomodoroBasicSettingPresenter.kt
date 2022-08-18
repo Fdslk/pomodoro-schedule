@@ -23,7 +23,6 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
     }
 
     private fun setupUIBindings() {
-
         val actionListener = ActionListener {
             updateBasicSettingsModel()
             updateUI()
