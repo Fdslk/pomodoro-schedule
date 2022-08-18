@@ -1,6 +1,7 @@
 package com.zqf.pomodoroschedule.model
 
 import java.util.*
+import kotlin.system.exitProcess
 
 class CustomTimer {
 
@@ -15,6 +16,7 @@ private class NewsletterTask constructor(period: Long): TimerTask() {
     override fun run() {
         if (index == 0L){
             this.cancel()
+            exitProcess(0)
         }
         println("${index --}")
     }

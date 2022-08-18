@@ -30,10 +30,5 @@ data class BasicSettings(
 
         val instance: BasicSettings
             get() = service()
-
-        @JvmStatic
-        fun getInstance(): PersistentStateComponent<BasicSettings> {
-            return ServiceManager.getService(BasicSettings::class.java)
-        }
     }
 }

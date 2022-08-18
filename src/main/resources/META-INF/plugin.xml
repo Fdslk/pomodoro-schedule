@@ -12,43 +12,8 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.zqf.pomodoroschedule.PluginSettings"></applicationService>
         <applicationService serviceImplementation="com.zqf.pomodoroschedule.model.BasicSettings"></applicationService>
         <applicationConfigurable instance="com.zqf.pomodoroschedule.PomodoroBasicSettingPresenter"></applicationConfigurable>
         <!-- Add your extensions here -->
     </extensions>
-
-    <actions>
-        <!--add action to an existing group-->
-        <group id="IdeaPlugin.pomodoroSchedule" text="pomodoro schedule">
-            <add-to-group group-id="MainMenu" anchor="last"></add-to-group>
-            <action class="com.zqf.pomodoroschedule.MainAction" id="IdeaPlugin.Actions.MainAction" text="init"></action>
-        </group>
-
-        <action id="org.intellij.sdk.action.PopupDialogAction" class="com.zqf.pomodoroschedule.group.PomodoroSettingsAction" text="Pop Dialog Action">
-            <add-to-group group-id="ToolsMenu" anchor="first"></add-to-group>
-        </action>
-        <!--add subgroup to an existing group-->
-        <group id="org.intellij.sdk.action.GroupedActions" text="Static Grouped Actions" popup="true" icon="AllIcons.Actions.Colors">
-            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.intellij.sdk.action.PopupDialogAction"/>
-            <action id="com.zqf.pomodoroschedule.PomodoroSettingsAction"
-                    class="com.zqf.pomodoroschedule.PomodoroSettingsAction" text="PomodoroSettingsAction" icon="AllIcons.Actions.ForceRefresh">
-            </action>
-            <action class="com.zqf.pomodoroschedule.MainAction" id="IdeaPlugin.group.Actions.MainAction" text="init"></action>
-        </group>
-
-        <!--dynamic group not working-->
-        <group id="com.zqf.pomodoroschedule.group.DynamicActionGroup"
-               class="com.zqf.pomodoroschedule.group.DynamicActionGroup" text="Dynamically Grouped Actions" popup="true">
-            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.intellij.sdk.action.GroupedActions"></add-to-group>
-        </group>
-
-        <!--custom new group-->
-        <group id="com.zqf.pomodoroschedule.group.CustomPluginActionGroup"
-               class="com.zqf.pomodoroschedule.group.CustomPluginActionGroup" text="Custom Plugin Settings" popup="true">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-            <action class="com.zqf.pomodoroschedule.group.PomodoroSettingsAction" id="com.zqf.pomodoroschedule.group.CustomGroupedAction"
-                    text="A Popup Action" description="SDK popup grouped action example" icon="AllIcons.Gutter.Colors"/>
-        </group>
-    </actions>
 </idea-plugin>
