@@ -5,8 +5,11 @@ import com.intellij.openapi.options.ConfigurationException
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.roots.ui.whenTextModified
 import com.zqf.pomodoroschedule.model.BasicSettings
+import com.zqf.pomodoroschedule.model.TimeUtils
 import java.awt.event.ActionListener
+import java.util.*
 import javax.swing.JComponent
+import kotlin.concurrent.fixedRateTimer
 
 class PomodoroBasicSettingPresenter constructor(private val basicSettings: BasicSettings = service()): SearchableConfigurable {
     private lateinit var uiModel: BasicSettings
@@ -33,6 +36,7 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
             cBox2BreakTimeSpan.addActionListener(actionListener)
             cBox2longBreakTimeSpan.addActionListener(actionListener)
             count2Pomodoros.addActionListener(actionListener)
+            startPomodorobutton.addActionListener(actionListener)
             multiText2NotificationMessages.whenTextModified {
                 if(uiModel.notificationMessages != basicSettingsWindowFrom?.multiText2NotificationMessages?.text){
                     uiModel.notificationMessages = basicSettingsWindowFrom?.multiText2NotificationMessages?.text.toString()
@@ -60,6 +64,7 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
     }
 
     private fun updateUI() {
+        var index = uiModel.pomodoroDuration
         if (uiResourcesDisposed()) return
         if (updatingUI) return
         updatingUI = true
@@ -72,7 +77,18 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
             multiText2NotificationMessages.text = uiModel.notificationMessages
         }
 
+        startCountDownTimerForOnePomodoro(index)
+
         updatingUI = false
+    }
+
+    private fun startCountDownTimerForOnePomodoro(countDownSecond: Int) {
+        var newSecond = countDownSecond * 60
+        fixedRateTimer(startAt = Calendar.getInstance().time, period = 1000L) {
+            basicSettingsWindowFrom!!.TimerPresentation.text =
+                (TimeUtils.convertSecondsToMinuitString(newSecond--))
+            if (newSecond < 0) this.cancel()
+        }
     }
 
     override fun isModified() = uiModel != basicSettings

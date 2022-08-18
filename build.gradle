@@ -12,6 +12,8 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
 }
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
@@ -22,4 +24,8 @@ patchPluginXml {
     changeNotes = """
       Add change notes here.<br>
       <em>most HTML tags may be used</em>"""
+}
+
+tasks.test {
+    useJUnitPlatform()
 }

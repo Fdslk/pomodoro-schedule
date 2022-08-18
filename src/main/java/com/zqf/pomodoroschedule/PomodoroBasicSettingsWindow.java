@@ -1,18 +1,11 @@
 package com.zqf.pomodoroschedule;
 
-import com.intellij.uiDesigner.core.GridConstraints;
-import com.intellij.uiDesigner.core.GridLayoutManager;
-
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
-import javax.swing.text.StyleContext;
-import java.awt.*;
-import java.util.Locale;
 
 public class PomodoroBasicSettingsWindow {
     private JLabel pomodoroLength;
     private JLabel label2Pomodoros;
-    private JLabel timeZone;
+    private JLabel pomodoroCounts;
     private JPanel myToolWindowContent;
     public JComboBox cBox2BreakTimeSpan;
     public JComboBox cBox2PomodoroLength;
@@ -22,9 +15,9 @@ public class PomodoroBasicSettingsWindow {
     private JLabel notificationMessages;
     public JTextPane multiText2NotificationMessages;
     public JComboBox count2Pomodoros;
-    private JButton StartPomodorobutton;
+    public JButton startPomodorobutton;
     private JLabel Timer;
-    private JLabel TimerPresentation;
+    public JLabel TimerPresentation;
 
     public JPanel getContent() {
         return myToolWindowContent;
