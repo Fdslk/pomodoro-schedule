@@ -15,13 +15,7 @@
         <applicationService serviceImplementation="com.zqf.pomodoroschedule.model.BasicSettings"></applicationService>
         <applicationService serviceImplementation="com.zqf.pomodoroschedule.model.PomodoroState"></applicationService>
         <applicationConfigurable instance="com.zqf.pomodoroschedule.PomodoroBasicSettingPresenter"></applicationConfigurable>
+        <statusBarWidgetFactory implementation="com.zqf.pomodoroschedule.PomodoroTimerStarterWidget"></statusBarWidgetFactory>
         <!-- Add your extensions here -->
     </extensions>
-    <actions>
-        <action id="com.zqf.pomodoroschedule.TimerActions" class="com.zqf.pomodoroschedule.TimerActions"
-                text="Pomodoro Starter" description="Start pomodoro timer">
-            <keyboard-shortcut keymap="$default" first-keystroke="shift meta P" second-keystroke="shift alt P"/>
-            <add-to-group group-id="`"
-        </action>
-    </actions>
 </idea-plugin>

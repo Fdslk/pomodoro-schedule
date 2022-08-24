@@ -39,3 +39,6 @@ Intellig plugin for time management
     setting
     ![GUI Designer](https://user-images.githubusercontent.com/6279298/184563693-fbf2e41e-0dc1-471b-83dd-4a555d111f2d.png)
   * how to show PopupList
+  * how to add widget
+    * add a widget factory then register it
+      * ```<statusBarWidgetFactory implementation="pomodoro.widget.PomodoroWidgetFactory"/>```

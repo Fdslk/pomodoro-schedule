@@ -15,11 +15,25 @@ data class BasicSettings(
     var startNewPomodoroAfterBreak: Boolean = false,
     var notificationMessages: String = ""
 ) : PersistentStateComponent<BasicSettings> {
+    val timeoutToContinuePomodoro = defaultBreakDuration
+    private val changeListeners = ArrayList<ChangeListener>()
+
+    fun addChangeListener(changeListener: ChangeListener) {
+        changeListeners.add(changeListener)
+    }
+
+    fun removeChangeListener(changeListener: ChangeListener) {
+        changeListeners.remove(changeListener)
+    }
 
     override fun getState() = this
 
     override fun loadState(state: BasicSettings) {
         XmlSerializerUtil.copyBean(state, this)
+    }
+
+    interface ChangeListener {
+        fun onChange(newSettings: BasicSettings)
     }
 
     companion object {
