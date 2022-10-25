@@ -13,7 +13,8 @@ data class BasicSettings(
     var isPopupEnabled: Boolean = true,
     var isShowTimeInToolbarWidget: Boolean = true,
     var startNewPomodoroAfterBreak: Boolean = false,
-    var notificationMessages: String = ""
+    var notificationMessages: String = "",
+    var isOpenRing: Boolean = false
 ) : PersistentStateComponent<BasicSettings> {
     val timeoutToContinuePomodoro = defaultBreakDuration
     private val changeListeners = ArrayList<ChangeListener>()

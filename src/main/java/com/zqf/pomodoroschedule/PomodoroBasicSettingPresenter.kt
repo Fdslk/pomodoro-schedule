@@ -37,6 +37,7 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
             cBox2longBreakTimeSpan.addActionListener(actionListener)
             count2Pomodoros.addActionListener(actionListener)
             startPomodorobutton.addActionListener(actionListener)
+            cBox2ringNotification.addActionListener(actionListener)
             multiText2NotificationMessages.whenTextModified {
                 if(uiModel.notificationMessages != basicSettingsWindowFrom?.multiText2NotificationMessages?.text){
                     uiModel.notificationMessages = basicSettingsWindowFrom?.multiText2NotificationMessages?.text.toString()
@@ -61,6 +62,9 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
         if(uiModel.longBreakFrequency != basicSettingsWindowFrom?.count2Pomodoros?.model?.selectedItem.toString().toInt()){
             uiModel.longBreakFrequency =  basicSettingsWindowFrom?.count2Pomodoros?.model?.selectedItem.toString().toInt()
         }
+        if(uiModel.isOpenRing != basicSettingsWindowFrom?.cBox2ringNotification?.model?.isSelected) {
+            uiModel.isOpenRing = basicSettingsWindowFrom?.cBox2ringNotification?.model?.isSelected!!
+        }
     }
 
     private fun updateUI() {
@@ -75,6 +79,7 @@ class PomodoroBasicSettingPresenter constructor(private val basicSettings: Basic
             cBox2longBreakTimeSpan.model.selectedItem = uiModel.longBreakDuration
             count2Pomodoros.model.selectedItem = uiModel.longBreakFrequency
             multiText2NotificationMessages.text = uiModel.notificationMessages
+            cBox2ringNotification.isSelected = uiModel.isOpenRing
         }
 
         startCountDownTimerForOnePomodoro(index)

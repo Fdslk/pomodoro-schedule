@@ -18,6 +18,7 @@ public class PomodoroBasicSettingsWindow {
     public JButton startPomodorobutton;
     private JLabel Timer;
     public JLabel TimerPresentation;
+    public JCheckBox cBox2ringNotification;
 
     public JPanel getContent() {
         return myToolWindowContent;
