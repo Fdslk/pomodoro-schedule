@@ -4,6 +4,10 @@ import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
+import com.intellij.util.xmlb.annotations.OptionTag
+import com.zqf.pomodoroschedule.model.PomodoroState.Mode.*
+import com.zqf.pomodoroschedule.model.time.Duration
+import com.zqf.pomodoroschedule.model.time.Time
 
 /*
 * leftPomodoros: 剩余pomodoro数量
@@ -13,8 +17,13 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 @State(name = "PomodoroStates", storages = [Storage("pomodoro.state.xml")] )
 data class PomodoroState(
     var leftPomodoros: Int = 1,
-    @Transient var currentMode: Mode = Mode.Stop,
-    var leftPomodorosTimeSpan: Long = 0L
+    @Transient var currentMode: Mode = Stop,
+    var leftPomodorosTimeSpan: Long = 0L,
+    var progress: Duration = Duration.zero,
+    var pomodorosTillLongBreak: Int = BasicSettings.defaultLongBreakFrequency,
+    var lastMode: Mode = Stop,
+    var startTime: Time = Time.zero,
+    var lastUpdateTime: Time = Time.zero,
 ): PersistentStateComponent<PomodoroState> {
 
     enum class Mode {

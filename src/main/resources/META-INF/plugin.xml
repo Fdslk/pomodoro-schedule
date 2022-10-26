@@ -11,6 +11,14 @@
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
 
+    <actions>
+        <action id="com.zqf.pomodoroschedule.StartOrStopPomodoro" class="com.zqf.pomodoroschedule.StartOrStopPomodoro" text="Start/Stop Pomodoro Timer"
+                description="Start or stop pomodoro timer">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift P"/>
+        </action>
+        <action id="com.zqf.pomodoroschedule.ResetPomodorosCounter" class="com.zqf.pomodoroschedule.ResetPomodorosCounter" text="Reset Pomodoros Counter"/>
+    </actions>
+
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.zqf.pomodoroschedule.model.BasicSettings"></applicationService>
         <applicationService serviceImplementation="com.zqf.pomodoroschedule.model.PomodoroState"></applicationService>
