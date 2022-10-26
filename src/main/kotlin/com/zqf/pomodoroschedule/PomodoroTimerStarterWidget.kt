@@ -91,7 +91,7 @@ class PomodoroWidget : CustomStatusBarWidget, StatusBarWidget.Multiframe {
     }
 
     override fun dispose() {
-        this.dispose()
+        model.removeListener(this)
     }
 
     override fun ID() = "Pomodoro.schedule"

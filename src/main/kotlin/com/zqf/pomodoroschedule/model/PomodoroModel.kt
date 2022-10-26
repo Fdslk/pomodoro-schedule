@@ -3,7 +3,6 @@ package com.zqf.pomodoroschedule.model
 import com.zqf.pomodoroschedule.model.PomodoroState.Mode.*
 import com.zqf.pomodoroschedule.model.time.Duration
 import com.zqf.pomodoroschedule.model.time.Time
-import java.util.HashMap
 
 class PomodoroModel(originalSettings: BasicSettings, val state: PomodoroState) {
     private val listeners = HashMap<Any, Listener>()
@@ -111,6 +110,10 @@ class PomodoroModel(originalSettings: BasicSettings, val state: PomodoroState) {
 
     private fun progressSince(time: Time): Duration =
         Duration.between(state.startTime, time).capAt(progressMax)
+
+    fun removeListener(key: Any) {
+        listeners.remove(key)
+    }
 
     private val progressMax: Duration
         get() = when (state.currentMode) {
