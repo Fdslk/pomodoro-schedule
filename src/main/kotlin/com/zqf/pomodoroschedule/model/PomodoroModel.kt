@@ -69,7 +69,7 @@ class PomodoroModel(originalSettings: BasicSettings, val state: PomodoroState) {
                     settings = updatedSettings
                     startTime = time
                     progress = progressSince(time)
-//                    pomodorosAmount++
+                    pomodorosAmount++
                     pomodorosTillLongBreak--
                 }
             }
@@ -102,7 +102,7 @@ class PomodoroModel(originalSettings: BasicSettings, val state: PomodoroState) {
     }
 
     fun resetPomodoros() {
-        state.leftPomodoros = 0
+        state.pomodorosAmount = 0
     }
 
     val leftPomodorosTimeSpan: Duration

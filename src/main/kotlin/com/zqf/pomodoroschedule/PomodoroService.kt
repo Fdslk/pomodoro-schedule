@@ -14,6 +14,7 @@ import com.zqf.pomodoroschedule.model.PomodoroState
 import com.zqf.pomodoroschedule.model.PomodoroState.Mode.*
 import com.zqf.pomodoroschedule.model.TimeSource
 import com.zqf.pomodoroschedule.model.time.Time
+import java.util.Optional
 
 @Service
 class PomodoroService: Disposable {
@@ -52,7 +53,10 @@ class UserNotifier(private val model: PomodoroModel) {
                     }
                     Break -> if (state.lastMode != Break) {
                         ringSound.play(settings.ringVolume)
-                        if (settings.isPopupEnabled) showPopupNotification(UIBundle.message("notification.text"))
+                        if (settings.isPopupEnabled)
+                            showPopupNotification(
+                                Optional.ofNullable(settings.notificationMessages)
+                                    .orElseGet { UIBundle.message("notification.text") })
                     }
                 }
             }

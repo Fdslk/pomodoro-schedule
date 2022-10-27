@@ -16,15 +16,14 @@ import com.zqf.pomodoroschedule.model.time.Time
 */
 @State(name = "PomodoroStates", storages = [Storage("pomodoro.state.xml")] )
 data class PomodoroState(
-    var leftPomodoros: Int = 1,
     @Transient var currentMode: Mode = Stop,
-    var leftPomodorosTimeSpan: Long = 0L,
     var progress: Duration = Duration.zero,
     var pomodorosTillLongBreak: Int = BasicSettings.defaultLongBreakFrequency,
     var lastMode: Mode = Stop,
     var startTime: Time = Time.zero,
     var lastUpdateTime: Time = Time.zero,
-): PersistentStateComponent<PomodoroState> {
+    var pomodorosAmount: Int = 0,
+    ): PersistentStateComponent<PomodoroState> {
 
     enum class Mode {
         /** Pomodoro in progress. */

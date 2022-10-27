@@ -1,13 +1,6 @@
 package com.zqf.pomodoroschedule;
 
-import com.intellij.uiDesigner.core.GridConstraints;
-import com.intellij.uiDesigner.core.GridLayoutManager;
-
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
-import javax.swing.text.StyleContext;
-import java.awt.*;
-import java.util.Locale;
 
 public class PomodoroBasicSettingsWindow {
     private JLabel pomodoroLength;
@@ -26,6 +19,7 @@ public class PomodoroBasicSettingsWindow {
     private JLabel Timer;
     public JLabel TimerPresentation;
     public JCheckBox cBox2ringNotification;
+    public JCheckBox cBox2AutoStartForNext;
 
     public JPanel getContent() {
         return myToolWindowContent;

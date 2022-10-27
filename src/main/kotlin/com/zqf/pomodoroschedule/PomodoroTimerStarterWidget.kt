@@ -77,7 +77,7 @@ class PomodoroWidget : CustomStatusBarWidget, StatusBarWidget.Multiframe {
             }
 
             override fun mouseEntered(e: MouseEvent?) {
-                statusBar.info = UIBundle.message("statuspanel.tooltip", nextActionName(model), model.state.leftPomodoros)
+                statusBar.info = UIBundle.message("statuspanel.tooltip", nextActionName(model), model.state.pomodorosAmount)
             }
 
             override fun mouseExited(e: MouseEvent?) {
