@@ -42,3 +42,53 @@ Intellig plugin for time management
   * how to add widget
     * add a widget factory then register it
       * ```<statusBarWidgetFactory implementation="pomodoro.widget.PomodoroWidgetFactory"/>```
+  * how to release a plugin in JetBrains MarketSpace
+    * using gradle sign
+    * using CTL
+      * package your code into `zip file`, running cmd `./gradlew build`, then you can find your plugin in the directory `./build/distributions`
+      * try plugin in your local machine
+      ![install plugin to your local machine](https://user-images.githubusercontent.com/6279298/199129178-ce977fc8-fc52-4a14-bca5-9da33b1fadc7.png)
+      * If the following error occurs to u, 
+        * ```
+          Plugin 'Kotlin' (version '211-1.5.20-release-284-IJ7442.40') is not compatible with the current version of the IDE, because it requires build 211.* or older but the current build is IU-212.4746.92
+          ```
+        * you might set specific IDE build version in `build.gradle` and add build start version in `plugin.xml` like
+        ```xml
+          version.set(
+            System.getenv().getOrDefault(
+                    "IJ_VERSION",
+                    "213.7172.25"
+            )
+          )
+        ```
+        ```json
+            <idea-version since-build="213.7172.25"/>
+        ```
+      * If everything is ok at here
+        * generate private key
+      ```cmd
+       openssl genpkey\
+         -aes-256-cbc\
+         -algorithm RSA\
+         -out private.pem\
+         -pkeyopt rsa_keygen_bits:4096
+      ```
+      * generate certificate
+      ```cmd
+       openssl req\
+         -key private.pem\
+         -new\
+         -x509\
+         -days 365\
+         -out chain.crt
+      ``` 
+      * sign your plugin zip. Download the latest [marketplace-zip-client](https://github.com/JetBrains/marketplace-zip-signer/releases)
+      If the password includes some special characters, you need to add a `escape character` before it.
+        ```
+        java -jar marketplace-zip-signer-cli.jar sign\
+          -in "unsigned.zip"\
+          -out "signed.zip"\
+          -cert-file "/path/to/chain.crt"\
+          -key-file "/path/to/private.pem"\
+          -key-pass "PRIVATE_KEY_PASSWORD"
+        ```

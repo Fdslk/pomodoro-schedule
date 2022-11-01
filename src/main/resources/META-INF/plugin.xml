@@ -11,6 +11,7 @@
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
 
+    <idea-version since-build="213.7172.25"/>
     <actions>
         <action id="com.zqf.pomodoroschedule.StartOrStopPomodoro" class="com.zqf.pomodoroschedule.StartOrStopPomodoro" text="Start/Stop Pomodoro Timer"
                 description="Start or stop pomodoro timer">
