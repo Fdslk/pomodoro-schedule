@@ -92,3 +92,4 @@ Intellig plugin for time management
           -key-file "/path/to/private.pem"\
           -key-pass "PRIVATE_KEY_PASSWORD"
         ```
+      * create jetBrains account, here I use google account. upload your plugin and wait two business days. Market will send you the verification result.
