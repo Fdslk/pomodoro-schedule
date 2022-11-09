@@ -4,8 +4,30 @@
     <vendor email="zqfangmaster@163.com" url="https://github.com/Fdslk/pomodoro-schedule">fzq</vendor>
 
     <description><![CDATA[
-    A plugin for time management using pomodoro
+    A plugin for time management using pomodoro, in this plugin provided the basic time management function, like
+    definition the time span of one pomodoro, definition the short and long rest interval, and determining whether need to start next pomodoro automatically.
+
+    <h2>How to use it</h2>
+    <ul>
+      <li>go to preferences -> Other Settings -> Pomodoro, you can see the basic setting interface</li>
+      <li>
+        <img src="https://user-images.githubusercontent.com/6279298/200705263-72783915-e0ca-4d14-a4e4-96f52a5d3e88.png" alt="how to set one pomodoro">
+      </li>
+      <li>
+        <img src="https://user-images.githubusercontent.com/6279298/200705253-76157fd3-01b8-4d9c-897f-2d24458554d1.png" alt="how to start one pomodoro" width="500" height="600">
+      </li>
+    </ul>
+    For more information visit the
+    <a href="https://github.com/Fdslk/pomodoro-schedule">github project site</a>.
     ]]></description>
+
+    <change-notes><![CDATA[
+    <h2>First Release</h2>
+    <ul>
+      <li>edit pomodoro</li>
+      <li>start pomodoro</li>
+    </ul>
+    ]]></change-notes>
 
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
          on how to target different products -->
